@@ -1,0 +1,15 @@
+--- 
+- hosts: all 
+  remote_user: pionek 
+  tasks: 
+  - name: Ensure the HTTPd package is installed 
+    apt: 
+      name: httpd 
+      state: present 
+    become: True 
+  - name: Stop the HTTPd service 
+    service: 
+      name: httpd 
+      state: stopped 
+    become: True 
+  

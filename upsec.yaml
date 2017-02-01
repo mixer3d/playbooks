@@ -1,0 +1,5 @@
+TASK: [common | Update the apt cache if older than 2 hrs]
+- name: Update the apt cache if older than 2 hrs
+  apt: update_cache=yes cache_valid_time=7200
+  tags:
+    - security-apt	

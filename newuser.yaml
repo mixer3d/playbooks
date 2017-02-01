@@ -1,0 +1,31 @@
+---
+- hosts: all
+  user: root
+  tasks:
+    - name: Ensure ansible user exists
+      user:
+        name: pionek
+        state: present
+        comment: Ansible normal user
+    - name: Installing package sudo when necessary
+      apt:
+        name: sudo
+        state: present
+#    - name: Ensure ansible user accepts the SSH key
+#      authorized_key:
+#        user: pionek           
+#        key: https://github.com/mixer3d.keys
+#        state: present
+    - name: Set authorized key took from file
+      authorized_key:
+        user: pionek
+        state: present
+        key: "{{ lookup('file', '/root/.ssh/authorized_keys') }}"
+    - name: Ensure the ansible user is sudoer with no password required
+      lineinfile:
+        dest: /etc/sudoers
+        state: present
+        regexp: '^pionek ALL\='
+        line: 'pionek ALL=(ALL) NOPASSWD:ALL'
+        validate: 'visudo -cf %s'
+                                                                                                     
