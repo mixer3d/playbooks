@@ -2,14 +2,14 @@
 - hosts: all 
   remote_user: pionek 
   tasks: 
-  - name: Ensure the HTTPd package is installed 
+  - name: Check that apache2 package is installed 
     apt: 
-      name: httpd 
+      name: apache2 
       state: present 
     become: True 
-  - name: Stop the HTTPd service 
+  - name: Stop the apache2 service 
     service: 
-      name: httpd 
+      name: apache2
       state: stopped 
     become: True 
   
