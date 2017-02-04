@@ -1,4 +1,5 @@
 ---
+#simple playbook example for installing multiple packages tested on Debian 8 with Ansible 2.2
 - hosts: all
   become: true
   tasks:
@@ -6,11 +7,13 @@
     apt:
       update-cache: yes
       cache_valid_time: 3600
-  - name: installing package glances
-    apt:
-      name: glances
+  - name: installing packages from the list
+    apt: 
+      name:
+      - emacs-nox
+      - python3
+      - python-pip
+      - htop
+      - glances
+      - nload
       state: present
-       
-      
-      
-      
