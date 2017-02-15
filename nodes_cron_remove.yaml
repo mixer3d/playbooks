@@ -1,0 +1,8 @@
+---
+#Ensure that old "Ansible: main_program" is no longer present
+- hosts: all
+  become: true
+  tasks:
+  - cron:
+      name: "main_program" 
+      state: absent

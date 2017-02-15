@@ -1,0 +1,10 @@
+---
+# Ensure that rule for crontab is added
+- hosts: all
+  become: true
+  tasks:
+  - cron:
+      name: "main_program" 
+      minute: "*/5"
+      hour: "*"
+      job: "/usr/bin/python3 /home/pionek/mainprogram.py -i /home/pionek/lista.txt -o /var/www/html/frames/"
