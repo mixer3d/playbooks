@@ -1,0 +1,19 @@
+---
+#simple playbook example for changing crontab tested on Debian 8 with Ansible 2.2
+- hosts: all
+  become: true
+  tasks:
+  - copy:
+      src: /home/pionek/mainprogram/mainprogram_multi.py
+      dest: /home/pionek/mainprogram.py
+      owner: pionek
+      group: pionek
+      mode: 0644
+  - copy:
+      src: /home/pionek/mainprogram/lista.txt
+      dest: /home/pionek/lista.txt
+      owner: pionek
+      group: pionek
+      mode: 0644
+
+      
