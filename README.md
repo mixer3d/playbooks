@@ -4,20 +4,20 @@
 >For example you can install apache2 with default configuration using "webserver.yaml" playbook:
 if your inventory file is in default location (/etc/ansible/hosts) simply type:
 
-####install apache2:
+install apache2:
 ```
 $ ansible-playbook webserver.yaml
 ```
-####stop apache2:
+stop apache2:
 ```
 $ ansible-playbook webserver_stop.yaml
 ```
-####restart:
+restart:
 ````
 $ ansible-playbook webserver_start.yaml
 ````
 
-####To install simply run:
+To install simply run:
 ````
 $ git clone https://github.com/mixer3d/playbooks.git
 ````
